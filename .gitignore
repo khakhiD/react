@@ -5,7 +5,6 @@ logs
 **/*.back.*
 
 node_modules
-03-practice/node_modules
 bower_components
 
 *.sublime*
