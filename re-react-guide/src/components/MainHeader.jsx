@@ -12,7 +12,7 @@ const MainHeader = ({ onCreatePost }) => {
         <p>
             <button className={classes.button} onClick={onCreatePost}>
                 <MdPostAdd size={18}/>
-                New Post
+                작성하기
             </button>
         </p>
     </header>

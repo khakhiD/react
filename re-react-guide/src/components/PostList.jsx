@@ -2,13 +2,33 @@ import Post from "./Post";
 import classes from "./PostList.module.css";
 import NewPost from "./NewPost";
 import Modal from "./Modal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 function PostList({ isPosting, onStopPosting }) {
   const [posts, setPosts] = useState([]);
 
-  const addPostHandler = function (postData) {
+  useEffect(() => {
+    async function fetchPosts() {
+      const response = await fetch("http://localhost:8080/posts");
+      const resData = await response.json();
+      setPosts(resData.posts);
+    }
+
+    fetchPosts();
+  }, []);
+
+  const addPostHandler = async function (postData) {
+    await fetch("http://localhost:8080/posts", {
+      method: "POST",
+      body: JSON.stringify(postData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("성공: ", data))
+      .catch((e) => console.error("실패: ", e));
     // 새로 만든 포스트가 배열 첫 번째에 들어가고,
     // 그 뒤로 원래 있던 포스트가 들어간다.
     setPosts((existingPosts) => [postData, ...existingPosts]);

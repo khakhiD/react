@@ -27,16 +27,16 @@ function NewPost({onCancel, onAddPost}) {
   return (
     <form className={classes.form} onSubmit={submitHandler}>
       <p>
-        <label htmlFor="body">Text</label>
+        <label htmlFor="body">포스트 내용</label>
         <textarea id="body" required rows={3} onChange={bodyChangeHandler} />
       </p>
       <p>
-        <label htmlFor="name">Your name</label>
+        <label htmlFor="name">작성자</label>
         <input type="text" id="name" required onChange={authorChangeHandler}/>
       </p>
       <p className={classes.actions}>
-        <button type="button" onClick={onCancel}>Cancel</button>
-        <button>Submit</button>
+        <button type="button" onClick={onCancel}>취소</button>
+        <button>작성</button>
       </p>
     </form>
   );
