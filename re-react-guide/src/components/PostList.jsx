@@ -8,12 +8,16 @@ import { v4 as uuidv4 } from "uuid";
 function PostList({ isPosting, onStopPosting }) {
   const [posts, setPosts] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     async function fetchPosts() {
       setIsFetching(true);
       const response = await fetch("http://localhost:8080/posts");
       const resData = await response.json();
+      // if (!response.ok) {
+      //   return setIsError(true);
+      // }
       setPosts(resData.posts);
       setIsFetching(false);
     }
@@ -62,6 +66,11 @@ function PostList({ isPosting, onStopPosting }) {
           <p>Loading...</p>
         </div>
       )}
+      {/* {isError && (
+        <div style={{ textAlign: 'center', color: 'white'}}>
+          <p>에러가 발생했습니다...</p>
+      </div>
+      )} */}
     </>
   );
 }
