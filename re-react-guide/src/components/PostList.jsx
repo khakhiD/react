@@ -26,7 +26,7 @@ function PostList() {
       {posts.length > 0 && (
         <ul className={classes.posts}>
           {posts.map((post) => (
-            <Post key={uuidv4()} author={post.author} body={post.body} />
+            <Post key={uuidv4()} id={post.id} author={post.author} body={post.body} />
           ))}
         </ul>
       )}
