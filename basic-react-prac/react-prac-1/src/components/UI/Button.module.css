@@ -4,13 +4,17 @@
   background: #646cff;
   color: white;
   padding: 0.25rem 1rem;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 .button:hover,
 .button:active {
-  background: #646cff;
-  border-color: #646cff;
+  /* background: #848aff; */
+  /* border-radius: 0px; */
+  /* border: 1px solid #fff; */
+  opacity: .7; 
+  transition: .2s ease-in-out;
 }
 
 .button:focus {
