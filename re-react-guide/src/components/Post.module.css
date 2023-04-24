@@ -30,8 +30,8 @@
 
 @keyframes animate-in {
   from {
-    opacity: 0;
-    transform: translateY(1rem);
+    opacity: 0.5;
+    transform: translateY(.3rem);
   }
   to {
     opacity: 1;
