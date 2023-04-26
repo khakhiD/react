@@ -34,38 +34,36 @@ const AddUser = (props) => {
 
     // console.log(enteredName, enteredUserAge);
     props.onAddUser(enteredName, enteredUserAge);
-    nameInputRef.current.value = '';
-    ageInputRef.current.value = '';
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
   };
 
   const errorHandler = () => {
     setError(null);
-  }
+  };
 
   return (
     <>
-      {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>}
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
       <Card className={classes.input}>
         <form className={classes.form} onSubmit={addUserHandler}>
           <div className={classes.inputBox}>
             <label className={classes.label} htmlFor="username">
               Username
             </label>
-            <input
-              type="text"
-              id="username"
-              ref={nameInputRef}
-            />
+            <input type="text" id="username" ref={nameInputRef} />
           </div>
           <div className={classes.inputBox}>
             <label className={classes.label} htmlFor="age">
               Age (Years)
             </label>
-            <input
-              type="number"
-              id="age"
-              ref={ageInputRef}
-            />
+            <input type="number" id="age" ref={ageInputRef} />
           </div>
           <Button type="submit">Add User</Button>
         </form>
